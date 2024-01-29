@@ -12,11 +12,16 @@ class IdeaController extends Controller
             'content' => 'required|min:5|max:240'
         ]);
 
+        $validated['user_id'] = auth()->id();
         Idea::create($validated);
         return redirect('/')->with('success', 'Idea created successfully !');
     }
 
     public function delete(Idea $idea) {
+        if(auth()->id() !== $idea->user_id) {
+            return redirect('/')->with('success', 'You don\'t have this permission!');
+        }
+
         $idea->delete();
         return redirect('/')->with('success', 'Idea deleted successfully !');
     }
@@ -26,11 +31,19 @@ class IdeaController extends Controller
     }
 
     public function edit(Idea $idea) {
+        if(auth()->id() !== $idea->user_id) {
+            return redirect('/')->with('success', 'You don\'t have this permission!');
+        }
+
         $editing = true;
         return view('ideas.show', compact('idea', 'editing'));
     }
 
     public function update(Idea $idea) {
+        if(auth()->id() !== $idea->user_id) {
+            return redirect('/')->with('success', 'You don\'t have this permission!');
+        }
+
         $validated =  request()->validate([
             'content' => 'required|min:5|max:240'
         ]);

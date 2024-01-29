@@ -12,6 +12,7 @@ class Comment extends Model
     protected $fillable = [
         'idea_id',
         'content',
+        'user_id'
     ];
 
     public function idea()

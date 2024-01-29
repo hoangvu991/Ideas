@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,9 @@ class DashboardController extends Controller
             $ideas = $ideas->where('content', 'like', '%'. request()->get('search'). '%');
         }
 
-        return view('dashboard', ['ideas' => $ideas->paginate(5)]);
+
+        return view('dashboard', [
+            'ideas' => $ideas->paginate(5),
+        ]);
     }
 }
