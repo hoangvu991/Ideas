@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Idea extends Model
+class Comment extends Model
 {
     use HasFactory;
 
-    // protected $guarded = [];
-
     protected $fillable = [
+        'idea_id',
         'content',
-        'likes',
     ];
 
-    public function comments()
+    public function idea()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Idea::class);
     }
 }
