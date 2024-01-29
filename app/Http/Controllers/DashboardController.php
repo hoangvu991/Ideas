@@ -15,9 +15,11 @@ class DashboardController extends Controller
             $ideas = $ideas->where('content', 'like', '%'. request()->get('search'). '%');
         }
 
+        $comments = Comment::with('user')->get();
 
         return view('dashboard', [
             'ideas' => $ideas->paginate(5),
+            'comments' => $comments
         ]);
     }
 }

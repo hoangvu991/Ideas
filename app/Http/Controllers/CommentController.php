@@ -16,6 +16,6 @@ class CommentController extends Controller
             'user_id' => auth()->id()
         ]);
 
-        return redirect()->route('idea.show', $idea->id)->with('success', 'Comment created successfully !');
+        return redirect()->back()->with('success', 'Comment created successfully !');
     }
 }

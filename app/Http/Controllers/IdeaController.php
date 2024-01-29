@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class IdeaController extends Controller
     }
 
     public function show(Idea $idea) {
-        return view('ideas.show', compact('idea'));
+        $comments = Comment::with('user')->get();
+        return view('ideas.show', compact('idea', 'comments'));
     }
 
     public function edit(Idea $idea) {
