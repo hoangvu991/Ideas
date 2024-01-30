@@ -4,8 +4,9 @@
         @include('shared.sidebar')
         <div class="col-6">
             @include('shared.success-msg')
-
-            @include('shared.submit-idea')
+            <div class="mt-3">
+                @include('shared.user-card')
+            </div>
             <hr>
             <div class="mt-3">
                 @forelse ($ideas as $idea)
@@ -24,3 +25,4 @@
         </div>
     </div>
 @endsection
+
