@@ -8,10 +8,14 @@
             @include('shared.submit-idea')
             <hr>
             <div class="mt-3">
-                @foreach ($ideas as $idea)
+                @forelse ($ideas as $idea)
                     @include('shared.idea-card')
-                @endforeach
-                {{ $ideas->links() }}
+                @empty
+                    <div class="mt-3 text-center">
+                        No Post Result
+                    </div>
+                @endforelse
+                {{ $ideas->withQueryString()->links() }}
             </div>
         </div>
         <div class="col-3">

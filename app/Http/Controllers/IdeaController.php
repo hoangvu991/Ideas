@@ -18,7 +18,7 @@ class IdeaController extends Controller
         return redirect('/')->with('success', 'Idea created successfully !');
     }
 
-    public function delete(Idea $idea) {
+    public function destroy(Idea $idea) {
         if(auth()->id() !== $idea->user_id) {
             return redirect('/')->with('success', 'You don\'t have this permission!');
         }

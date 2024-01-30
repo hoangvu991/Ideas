@@ -9,11 +9,11 @@
                 </div>
             </div>
             <div>
-                <form method="POST" action="{{ route('idea.delete', $idea->id) }}">
+                <form method="POST" action="{{ route('ideas.destroy', $idea->id) }}">
                     @csrf
                     @method('DELETE')
-                    <a class="mx-2" href="{{ route('idea.show', $idea->id) }}">View</a>
-                    <a href="{{ route('idea.edit', $idea->id) }}">Edit</a>
+                    <a class="mx-2" href="{{ route('ideas.show', $idea->id) }}">View</a>
+                    <a href="{{ route('ideas.edit', $idea->id) }}">Edit</a>
                     <button class="btn btn-danger btn-sm"> X </button>
                 </form>
             </div>
@@ -23,7 +23,7 @@
         <p class="fs-6 fw-light text-muted">
             @if ($editing ?? false)
                 <div class="row">
-                    <form action="{{ route('idea.update', $idea->id) }}" method="post">
+                    <form action="{{ route('ideas.update', $idea->id) }}" method="post">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">

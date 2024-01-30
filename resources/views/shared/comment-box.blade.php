@@ -1,5 +1,5 @@
 <div>
-    <form action="{{ route('idea.comments.store', $idea->id) }}" method="POST">
+    <form action="{{ route('ideas.comments.store', $idea->id) }}" method="POST">
         @csrf
         <div class="mb-3">
             <textarea class="fs-6 form-control" name="content" rows="1"></textarea>
@@ -9,7 +9,7 @@
         </div>
     </form>
     <hr>
-    @if ($comments->isNotEmpty())
+    @if (isset($comments))
         @foreach ($comments->where('idea_id', $idea->id) as $comment)
             <div class="d-flex align-items-start">
                 <img style="width:35px" class="me-2 avatar-sm rounded-circle"
