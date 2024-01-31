@@ -25,10 +25,12 @@ Route::resource('users', UserController::class)->only('show', 'edit', 'update')-
 
 Route::middleware(['auth'])->group(function () {
     Route::post('users/{user}/follow', [FollowController::class, 'follow'])->name('users.follow');
-
     Route::post('users/{user}/nofollow', [FollowController::class, 'nofollow'])->name('users.nofollow');
+
+    Route::post('ideas/{idea}/like', [FollowController::class, 'like'])->name('ideas.like');
+    Route::post('ideas/{idea}/unlike', [FollowController::class, 'unlike'])->name('ideas.unlike');
 });
 
 Route::get('/terms', function() {
     return view('terms');    
-});
+})->name('terms');
