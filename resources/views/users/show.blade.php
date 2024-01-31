@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         @include('shared.sidebar')
-        <div class="col-8">
+        <div class="col-8" style="margin-top: -10px">
             @include('shared.success-msg')
             <div class="mt-3">
                 @include('shared.user-card')

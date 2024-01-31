@@ -6,7 +6,10 @@
                     <a class="nav-link {{ Route::is('home.page') ? 'text-white bg-primary rounded' : '' }}" href="{{ route('home.page') }}">
                         <span>Home</span></a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('feed') ? 'text-white bg-primary rounded' : '' }}" href="{{ route('feed') }}">
+                        <span>News Feed</span></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('terms') ? 'text-white bg-primary rounded' : '' }}" href="{{ route('terms') }}">
                         <span>Terms</span></a>
