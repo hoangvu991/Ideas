@@ -8,8 +8,16 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
+
+//lang
+Route::get('/lang/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->route('home.page');
+})->name('lang');
 
 Route::get('/', [DashboardController::class, 'index'])->name('home.page');
 
