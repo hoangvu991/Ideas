@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index() {
-        $ideas = Idea::orderBy('created_at', 'DESC');
+        $ideas = Idea::withCount('likes')->orderBy('created_at', 'DESC');
 
         if(Request()->has('search')) {
             $ideas = $ideas->where('content', 'like', '%'. request()->get('search'). '%');
