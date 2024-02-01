@@ -19,9 +19,7 @@ class IdeaController extends Controller
     }
 
     public function destroy(Idea $idea) {
-        if(auth()->id() !== $idea->user_id) {
-            return redirect('/')->with('success', 'You don\'t have this permission!');
-        }
+        $this->authorize('delete', $idea);
 
         $idea->delete();
         return redirect('/')->with('success', 'Idea deleted successfully !');
@@ -33,9 +31,7 @@ class IdeaController extends Controller
     }
 
     public function edit(Idea $idea) {
-        if(auth()->id() !== $idea->user_id) {
-            return redirect('/')->with('success', 'You don\'t have this permission!');
-        }
+        $this->authorize('update', $idea);
 
         $editing = true;
         return view('ideas.show', compact('idea', 'editing'));

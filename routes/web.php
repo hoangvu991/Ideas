@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
@@ -32,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('ideas/{idea}/like', [FollowController::class, 'like'])->name('ideas.like');
     Route::post('ideas/{idea}/unlike', [FollowController::class, 'unlike'])->name('ideas.unlike');
 });
+
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware(['auth']);
 
 Route::get('/terms', function() {
     return view('terms');    

@@ -13,8 +13,12 @@
                     @csrf
                     @method('DELETE')
                     <a class="mx-2" href="{{ route('ideas.show', $idea->id) }}">View</a>
+                    @can('update', $idea)
                     <a href="{{ route('ideas.edit', $idea->id) }}">Edit</a>
-                    <button class="btn btn-danger btn-sm"> X </button>
+                    @endcan
+                    @can('delete', $idea)
+                        <button class="btn btn-danger btn-sm"> X </button>
+                    @endcan
                 </form>
             </div>
         </div>
