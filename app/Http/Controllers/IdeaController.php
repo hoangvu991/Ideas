@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IdeaFormRequest;
 use App\Models\Comment;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
-    public function store(Request $req) {
-        $validated =  $req->validate([
-            'content' => 'required|min:5|max:240'
-        ]);
+    public function store(IdeaFormRequest $req) {
+        $validated =  $req->validated();
 
         $validated['user_id'] = auth()->id();
         Idea::create($validated);
@@ -37,14 +36,10 @@ class IdeaController extends Controller
         return view('ideas.show', compact('idea', 'editing'));
     }
 
-    public function update(Idea $idea) {
-        if(auth()->id() !== $idea->user_id) {
-            return redirect('/')->with('success', 'You don\'t have this permission!');
-        }
+    public function update(Idea $idea, IdeaFormRequest $req) {
+        $this->authorize('update', $idea);
 
-        $validated =  request()->validate([
-            'content' => 'required|min:5|max:240'
-        ]);
+        $validated =  $req->validated();
         
         $idea->update($validated);
         return redirect()->route('idea.show', $idea)->with('success', 'Idea updated successfully !');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,22 +18,19 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
         $editing = true;
         $ideas = $user->ideas()->paginate(5);
         return view('users.edit', compact('user', 'editing', 'ideas'));
     }
 
-    public function update(User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $validated =  request()->validate([
-            'name' => 'required|min:5|max:240',
-            'bio' => 'nullable|min:3|max:240',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
-        ]);
+        $this->authorize('update', $user);
+        $validated =  $request->validated();
 
-
-        if(request()->has('image')) {
-            $imagePath = request()->file('image')->store('profile', 'public');
+        if($request->has('image')) {
+            $imagePath = $request->file('image')->store('profile', 'public');
             $validated['image'] = $imagePath;
             Storage::disk('public')->delete($user->image ?? '');
         }
