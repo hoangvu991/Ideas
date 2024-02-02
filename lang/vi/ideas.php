@@ -1,6 +1,30 @@
 <?php 
 
 return [
-    'share' => 'Chia sẻ cảm nghĩ của bạn',
-    'login_to_share' => 'Đăng nhập để chia sẻ cảm nghĩ của bạn'
-];
+    'share' => 'Chia sẻ ý tưởng của bạn',
+    'login_to_share' => 'Đăng nhập để chia sẻ ý tưởng của bạn',
+    'login' => 'Đăng nhập',
+    'pwd' => 'Mật khẩu',
+    'register' => 'Đăng ký tại đây',
+    'register_form' => 'Đăng ký',
+    'user_name' => 'Tên',
+    'confirm_pwd' => 'Xác nhận mật khẩu',
+    'login_here' => 'Đăng nhập tại đây',
+    'logout' => 'Đăng xuất',
+    'cmt' => 'Bình luận',
+    'follow' => 'Theo dõi ai',
+    'view' => 'Xem',
+    'edit' => 'Chỉnh sửa',
+    'update' => 'Cập nhật',
+    'search' => 'Tìm kiếm',
+    'home' => 'Trang chủ',
+    'news' => 'Bảng tin',
+    'terms' => 'Điều khoản',
+    'follower' => 'Người theo dõi',
+    'following' => 'Đang theo dõi',
+    'a_follow' => 'Theo dõi',
+    'image_user' => 'Ảnh đại diện',
+    'save' => 'Lưu',
+    'no_post' => 'Không tìm thấy bài viết',
+    'share_idea' => 'Chia sẻ'
+   ];

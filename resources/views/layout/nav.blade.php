@@ -11,11 +11,11 @@
                 @guest
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('login') ? 'active' : '' }}" aria-current="page"
-                            href="{{ route('login') }}">Login</a>
+                            href="{{ route('login') }}">{{ __('ideas.login') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('register') ? 'active' : '' }}"
-                            href="{{ route('register') }}">Register</a>
+                            href="{{ route('register') }}">{{ __('ideas.register_form') }}</a>
                     </li>
                 @endguest
                 @auth
@@ -32,7 +32,7 @@
                     <li class="nav-item">
                         <form action="{{ route('logout.auth') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-danger nav-link">Logout</button>
+                            <button type="submit" class="btn btn-danger nav-link">{{ __('ideas.logout') }}</button>
                         </form>
                     </li>
                 @endauth

@@ -12,9 +12,9 @@
                 <form method="POST" action="{{ route('ideas.destroy', $idea->id) }}">
                     @csrf
                     @method('DELETE')
-                    <a class="mx-2" href="{{ route('ideas.show', $idea->id) }}">View</a>
+                    <a class="mx-2" href="{{ route('ideas.show', $idea->id) }}">{{ __('ideas.view') }}</a>
                     @can('update', $idea)
-                    <a href="{{ route('ideas.edit', $idea->id) }}">Edit</a>
+                    <a href="{{ route('ideas.edit', $idea->id) }}">{{ __('ideas.edit') }}</a>
                     @endcan
                     @can('delete', $idea)
                         <button class="btn btn-danger btn-sm"> X </button>
@@ -37,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="">
-                            <button type="submit" class="btn btn-dark"> Update </button>
+                            <button type="submit" class="btn btn-dark"> {{ __('ideas.update') }} </button>
                         </div>
                     </form>
                 </div>

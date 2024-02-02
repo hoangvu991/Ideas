@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="mt-3">
-                <h3>Profile Image</h3>
+                <h3>{{ __('ideas.image_user') }}</h3>
                 <input type="file" name="image" class="form-control">
             </div>
 
@@ -29,11 +29,11 @@
                         <span class="fs-6 text-danger">{{ $message }}</span>
                     @enderror
                 </p>
-                <button type="submit" class="mb-2 btn btn-success">Save</button>
+                <button type="submit" class="mb-2 btn btn-success">{{ __('ideas.save') }}</button>
 
                 <div class="d-flex justify-content-start">
                     <a href="#" class="fw-light nav-link fs-6 me-3"> <span class="fas fa-user me-1">
-                        </span>{{ $user->followers()->count() }} Followers </a>
+                        </span>{{ $user->followers()->count() }} {{ __('ideas.follower') }} </a>
                     <a href="#" class="fw-light nav-link fs-6 me-3"> <span class="fas fa-brain me-1">
                         </span>{{ $user->ideas()->count() }}</a>
                     <a href="#" class="fw-light nav-link fs-6"> <span class="fas fa-comment me-1">

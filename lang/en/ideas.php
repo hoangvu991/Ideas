@@ -2,5 +2,29 @@
 
 return [
     'share' => 'Share yours ideas',
-    'login_to_share' => 'Login to share yours ideas'
+    'login_to_share' => 'Login to share yours ideas',
+    'login' => 'Login',
+    'pwd' => 'Password',
+    'register' => 'Register here',
+    'register_form' => 'Register',
+    'user_name' => 'Name',
+    'confirm_pwd' => 'Confirm Password',
+    'login_here' => 'Login here',
+    'logout' => 'Logout',
+    'cmt' => 'Post Comment',
+    'follow' => 'Who to follow',
+    'view' => 'View',
+    'edit' => 'Edit',
+    'update' => 'Update',
+    'search' => 'Search',
+    'home' => 'Home',
+    'news' => 'News Feed',
+    'terms' => 'Terms',
+    'follower' => 'Followers',
+    'following' => 'Following',
+    'a_follow' => 'Follow',
+    'image_user' => 'Profile Image',
+    'save' => 'Save',
+    'no_post' => 'No Post Result',
+    'share_idea' => 'Share'
 ];

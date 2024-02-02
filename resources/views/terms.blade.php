@@ -3,7 +3,7 @@
     <div class="row">
         @include('shared.sidebar')
         <div class="col-6">
-            <h1>Terms</h1>
+            <h1> {{ __('ideas.terms') }}</h1>
             <div>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta ipsam molestiae et ducimus voluptatibus
                 doloremque recusandae. Corporis perspiciatis laboriosam perferendis harum mollitia, debitis sint possimus

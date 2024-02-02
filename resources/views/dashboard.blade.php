@@ -12,7 +12,7 @@
                     @include('shared.idea-card')
                 @empty
                     <div class="mt-3 text-center">
-                        No Post Result
+                        {{ __('ideas.no_post') }}
                     </div>
                 @endforelse
                 {{ $ideas->withQueryString()->links() }}
